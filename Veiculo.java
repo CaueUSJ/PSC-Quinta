@@ -9,18 +9,24 @@ public class Veiculo {
     
     public static void ligarMotor() {
 
-        if (motorLigado == false) {
-            motorLigado = true;
-            System.out.println(" Motor ligado.");
+        if (combustivel > 0){
+            if (motorLigado == false) {
+                motorLigado = true;
+                System.out.println(" Motor ligado.");
+            } else {
+                System.out.println(" Motor já está ligado!");
+            }
         } else {
-            System.out.println(" Motor já está ligado!");
+            System.out.println(" Veiculo sem combustivel!");
+            System.out.println(" Combustivel: " + combustivel + " Litros");
         }
 
     }
+       
 
     public static void desligarMotor() {
 
-         if (motorLigado == true) {
+        if (motorLigado == true) {
             motorLigado = false;
             System.out.println(" Motor desligado.");
         } else {
@@ -29,19 +35,31 @@ public class Veiculo {
 
     }
 
-    public static double acelerar() {
 
-        velocidadeAtual = velocidadeAtual + 5;
+    public static void acelerar() {
 
-        return velocidadeAtual;
+        if ( motorLigado == true){
+            velocidadeAtual = velocidadeAtual + 5;
+        } else {
+            System.out.println(" Veiculo está com o motor desligado");
+        }
+
+        System.out.println(" Velocidade atual: " + velocidadeAtual + " Km/h");
     }
 
-    public static double frear() {
 
-        velocidadeAtual = velocidadeAtual - 5;
+    public static void frear() {
 
-        return velocidadeAtual;
+        if ( motorLigado == true){
+            velocidadeAtual = velocidadeAtual - 5;
+        } else {
+            System.out.println(" Veiculo está com o motor desligado");
+        }
+
+        System.out.println(" Velocidade atual: " + velocidadeAtual + " Km/h");
+
     }
+    
 
     public static void exibirInfo() {
 

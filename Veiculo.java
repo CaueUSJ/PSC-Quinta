@@ -59,7 +59,7 @@ public class Veiculo {
         System.out.println(" Velocidade atual: " + velocidadeAtual + " Km/h");
 
     }
-    
+
 
     public static void exibirInfo() {
 

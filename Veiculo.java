@@ -10,7 +10,7 @@ public class Veiculo {
     public static void ligarMotor() {
 
         if (combustivel > 0){
-            if (motorLigado == false) {
+            if (!motorLigado) {
                 motorLigado = true;
                 System.out.println(" Motor ligado.");
             } else {
@@ -26,7 +26,7 @@ public class Veiculo {
 
     public static void desligarMotor() {
 
-        if (motorLigado == true) {
+        if (motorLigado) {
             motorLigado = false;
             System.out.println(" Motor desligado.");
         } else {
@@ -38,7 +38,7 @@ public class Veiculo {
 
     public static void acelerar() {
 
-        if ( motorLigado == true){
+        if (motorLigado){
             velocidadeAtual = velocidadeAtual + 5;
         } else {
             System.out.println(" Veiculo está com o motor desligado");
@@ -50,7 +50,7 @@ public class Veiculo {
 
     public static void frear() {
 
-        if ( motorLigado == true){
+        if (motorLigado) {
             velocidadeAtual = velocidadeAtual - 5;
         } else {
             System.out.println(" Veiculo está com o motor desligado");

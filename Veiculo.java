@@ -1,12 +1,25 @@
 public class Veiculo {
 
-    static String marca;
-    static String modelo;
-    static int ano;
-    static double velocidadeAtual;
-    static boolean motorLigado;
-    static double combustivel;
+    private static String marca;
+    private static String modelo;
+    private static int ano;
+    private static double velocidadeAtual;
+    private static boolean motorLigado;
+    private static double combustivel;
     
+    public double getVelocidadeAtual(){
+        return velocidadeAtual;
+    }
+
+    public void setCombustivel(double combustivel){
+        this.combustivel += combustivel;
+        
+    }
+
+    public double getCombustivel(){
+        return combustivel;
+    }
+
     public static void ligarMotor() {
 
         if (combustivel > 0){
@@ -40,6 +53,7 @@ public class Veiculo {
 
         if (motorLigado){
             velocidadeAtual = velocidadeAtual + 5;
+            combustivel -= 1;
         } else {
             System.out.println(" Veiculo está com o motor desligado");
         }

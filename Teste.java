@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Teste {
     public static void main(String[] args) {
-
+        
         Scanner scanner = new Scanner(System.in);        
         Veiculo veiculo = new Veiculo();
 
@@ -12,22 +12,22 @@ public class Teste {
 
         while (inicio) {
 
-            System.out.println("---------------------------");
-            System.out.println("       TURNO " + turno);
-            System.out.println("---------------------------");
-            System.out.println("Velocidade atual: " + veiculo.getVelocidadeAtual() + " Km/h");
-            System.out.println("Combustivel: " + veiculo.getCombustivel() + " Litros");
-            System.out.println("---------------------------");
+            System.out.println("------------------------------------------------------");
+            System.out.println("                     TURNO " + turno);
+            System.out.println("------------------------------------------------------");
+            System.out.println("               Velocidade atual: " + veiculo.getVelocidadeAtual() + " Km/h");
+            System.out.println("                   Combustivel: " + veiculo.getCombustivel() + " Litros");
+            System.out.println("------------------------------------------------------");
 
-            System.out.println("Digite um comando: ");
-            System.out.println("---------------------------");
-            System.out.println(" [1] Ligar motor ");
-            System.out.println(" [2] Desligar motor ");
-            System.out.println(" [3] Abastecer veiculo ");
-            System.out.println(" [4] Acelerar ");
-            System.out.println(" [5] Frear ");
-            System.out.println(" [6] Informações do veiculo ");
-            System.out.println(" [7] Sair ");
+            System.out.println("              Digite um comando: ");
+            System.out.println("------------------------------------------------------");
+            System.out.println("               [1] Ligar motor ");
+            System.out.println("               [2] Desligar motor ");
+            System.out.println("               [3] Abastecer veiculo ");
+            System.out.println("               [4] Acelerar ");
+            System.out.println("               [5] Frear ");
+            System.out.println("               [6] Informações do veiculo ");
+            System.out.println("               [7] Sair ");
 
             int command = scanner.nextInt();
 
@@ -52,11 +52,11 @@ public class Teste {
                 veiculo.exibirInfo();
                 break;
             default:
-                System.out.println("Saindo...");
+                System.out.println("               Saindo...");
                 inicio = false;
             }
 
-            System.out.println("---------------------------");
+            System.out.println("------------------------------------------------------");
             turno++;
 
         }

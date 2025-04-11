@@ -7,6 +7,30 @@ public class Veiculo {
     private static boolean motorLigado;
     private static double combustivel;
     
+    public void setMarca(String marca){
+        this.marca = marca;        
+    }
+
+    public String getMarca(){
+        return marca;
+    }
+
+    public void setModelo(String modelo){
+        this.modelo = modelo;        
+    }
+
+    public String getModelo(){
+        return modelo;
+    }
+
+    public void setAno(int ano){
+        this.ano = ano;        
+    }
+
+    public int getAno(){
+        return ano;
+    }
+
     public double getVelocidadeAtual(){
         return velocidadeAtual;
     }
@@ -19,6 +43,8 @@ public class Veiculo {
     public double getCombustivel(){
         return combustivel;
     }
+
+    
 
     public static void ligarMotor() {
 

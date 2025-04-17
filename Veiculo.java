@@ -1,3 +1,5 @@
+
+
 public class Veiculo {
 
     private String marca;
@@ -7,6 +9,19 @@ public class Veiculo {
     private boolean motorLigado;
     private double combustivel;
     
+    public Veiculo(String marca, String modelo, int ano, double combustivel){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.velocidadeAtual = 0;
+        this.motorLigado = false;
+        this.combustivel = combustivel;
+    }
+
+    public Veiculo(){
+        System.out.println("Construtor padãro!");
+    }
+
 
     // Métodos Set e Get 
     public void setMarca(String marca){
@@ -42,8 +57,7 @@ public class Veiculo {
     }
 
     public void setCombustivel(double combustivel){
-        this.combustivel += combustivel;
-        
+                
     }
 
     public double getCombustivel(){
@@ -51,7 +65,7 @@ public class Veiculo {
     }
 
     public void setMotorLigado(){
-        
+
     }
 
     public boolean getMotorLigado(){
@@ -175,6 +189,19 @@ public class Veiculo {
         System.out.println(" Velocidade atual: " + this.velocidadeAtual + " Km/h");
         System.out.println(" Quantidade de combustivel: " + this.combustivel + " Litros");
 
+
+    }
+
+    public void abastecer (double combustivel){
+        if (this.velocidadeAtual <= 0){
+            if (!this.motorLigado) {
+                this.combustivel += combustivel;
+            } else {
+                System.out.println("Motor está ligado. Desligue o motor para abastecer! ");
+            }
+        } else {
+            System.out.println("Veiculo está em movimento, não é possível abastecer!");
+        }
 
     }
 

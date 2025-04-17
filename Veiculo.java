@@ -1,12 +1,14 @@
 public class Veiculo {
 
-    private static String marca;
-    private static String modelo;
-    private static int ano;
-    private static double velocidadeAtual;
-    private static boolean motorLigado;
-    private static double combustivel;
+    private String marca;
+    private String modelo;
+    private int ano;
+    private double velocidadeAtual;
+    private boolean motorLigado;
+    private double combustivel;
     
+
+    // Métodos Set e Get 
     public void setMarca(String marca){
         this.marca = marca;        
     }
@@ -31,6 +33,10 @@ public class Veiculo {
         return ano;
     }
 
+    public void setVelocidadeAtual(){
+
+    }
+
     public double getVelocidadeAtual(){
         return velocidadeAtual;
     }
@@ -44,29 +50,52 @@ public class Veiculo {
         return combustivel;
     }
 
+    public void setMotorLigado(){
+        
+    }
+
+    public boolean getMotorLigado(){
+        return motorLigado;
+    }
+
     
+    // Metodos 
 
-    public static void ligarMotor() {
+    /** Regras para ligarMotor()
+     * 1. Verifique se o motor está desligado.
+     * 2. Se estiver desligado, ligue o motor e mostre a mensagem:
+     * "Motor ligado!"
+     * 3. Caso contrário, informe que o motor já está ligado.
+     */
 
-        if (combustivel > 0){
-            if (!motorLigado) {
-                motorLigado = true;
+    public void ligarMotor() {
+
+        if (this.combustivel > 0){
+            if (!this.motorLigado) {
+                this.motorLigado = true;
                 System.out.println(" Motor ligado.");
             } else {
                 System.out.println(" Motor já está ligado!");
             }
         } else {
             System.out.println(" Veiculo sem combustivel!");
-            System.out.println(" Combustivel: " + combustivel + " Litros");
+            System.out.println(" Combustivel: " + this.combustivel + " Litros");
         }
 
     }
        
 
-    public static void desligarMotor() {
+    /** Regras para desligarMotor()
+     * 1. Verifique se o motor está ligado.
+     * 2. Se estiver ligado, desligue o motor e mostre a mensagem: 
+     * "Motor desligado!"
+     * 3. Caso contrário, informe que o motor já está desligado.
+     */
 
-        if (motorLigado) {
-            motorLigado = false;
+    public void desligarMotor() {
+
+        if (this.motorLigado) {
+            this.motorLigado = false;
             System.out.println(" Motor desligado.");
         } else {
             System.out.println(" Motor já está desligado!");
@@ -74,38 +103,78 @@ public class Veiculo {
 
     }
 
+    /** Regras para acelerar()
+     * 1. Verifique se o motor está ligado. Se não estiver, exiba uma mensagem
+     * informando que não é possível acelerar.
+     * 2. Verifique se há combustível. Se estiver zerado ou negativo,
+     * exiba uma mensagem informando que não há combustível.
+     * 3. Se as duas condições acima forem atendidas, aumente a velocidade em 10 Km/h.
+     * 4. Reduza o combustível em 0.5 litros.
+     * 5. Exiba a mensagem informando a nova velocidade
+     */
 
-    public static void acelerar() {
+    public void acelerar() {
 
-        if (motorLigado){
-            velocidadeAtual = velocidadeAtual + 5;
-            combustivel -= 1;
+        if (this.combustivel > 0){
+            if (this.motorLigado){
+                this.velocidadeAtual = this.velocidadeAtual + 10;
+                this.combustivel -= 0.5;
+                if (this.combustivel <= 0){
+                    this.combustivel = 0;
+                }
+            } else {
+                System.out.println(" Veiculo está com o motor desligado");
+            }
         } else {
-            System.out.println(" Veiculo está com o motor desligado");
+            System.out.println(" Veiculo está sem combustivel, não é possivel acelerar!");
         }
-
-        System.out.println(" Velocidade atual: " + velocidadeAtual + " Km/h");
+        
+        System.out.println(" Velocidade atual: " + this.velocidadeAtual + " Km/h");
     }
 
+    /** Regras para frear()
+     * 1. Verifique se a velocidade atual é maior que zero.
+     * 2. Caso seja, reduza a velocidade em 10 Km/h.
+     * 3. Se após reduzir, a velocidade ficar abaixo de zero, ajuste para zero.
+     * 4. Exiba uma mensagem informando a nova velocidade.
+     * 5. Caso a velocidade já estaja zero, informe que o veiculo já está parado.
+     */
+    public void frear() {
 
-    public static void frear() {
-
-        if (motorLigado) {
-            velocidadeAtual = velocidadeAtual - 5;
+        if (this.velocidadeAtual > 0) {
+            this.velocidadeAtual = this.velocidadeAtual - 10;
+            if (this.velocidadeAtual <= 0){
+                this.velocidadeAtual = 0;
+            }
         } else {
-            System.out.println(" Veiculo está com o motor desligado");
+            System.out.println(" Veiculo já está parado!");
         }
 
-        System.out.println(" Velocidade atual: " + velocidadeAtual + " Km/h");
+        System.out.println(" Velocidade atual: " + this.velocidadeAtual + " Km/h");
 
     }
 
+    /** Regras para exibirInfo()
+     * 1. Exibir a marca, o modelo e o ano do veículo.
+     * 2. Exiba o estado do motor (ligado ou desligado).
+     * 3. Exiba a velocidade atual em Km/h.
+     * 4. Exiba a quantidade de combustível em litros.
+     */
+    public void exibirInfo() {
 
-    public static void exibirInfo() {
+        System.out.println(" Marca do veículo: " + this.marca);
+        System.out.println(" Modelo do veículo: " + this.modelo);
+        System.out.println(" Ano de fabricação do veículo: " + this.ano);
+        
+        if (this.motorLigado){
+            System.out.println(" Estado do motor: Ligado!");
+        } else {
+            System.out.println(" Estado do motor: Desligado!");
+        }
 
-        System.out.println(" Marca do veículo: " + marca);
-        System.out.println(" Modelo do veículo: " + modelo);
-        System.out.println(" Ano de fabricação do veículo: " + ano);
+        System.out.println(" Velocidade atual: " + this.velocidadeAtual + " Km/h");
+        System.out.println(" Quantidade de combustivel: " + this.combustivel + " Litros");
+
 
     }
 

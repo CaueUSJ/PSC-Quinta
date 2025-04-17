@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class Teste {
     public static void main(String[] args) {
         
+        double abastecer = 5.0;
+
         Scanner scanner = new Scanner(System.in);        
         Veiculo veiculo = new Veiculo();
 
@@ -16,7 +18,14 @@ public class Teste {
             System.out.println("                     TURNO " + turno);
             System.out.println("------------------------------------------------------");
             System.out.println("               Velocidade atual: " + veiculo.getVelocidadeAtual() + " Km/h");
-            System.out.println("                   Combustivel: " + veiculo.getCombustivel() + " Litros");
+
+            if (veiculo.getMotorLigado()){
+                System.out.println("               Estado do motor: Ligado!");
+            } else {
+                System.out.println("               Estado do motor: Desligado!");
+            }
+            
+            System.out.println("               Combustivel: " + veiculo.getCombustivel() + " Litros");
             System.out.println("------------------------------------------------------");
 
             System.out.println("              Digite um comando: ");
@@ -33,27 +42,16 @@ public class Teste {
 
 
             switch (command) {
-            case 1:
-                veiculo.ligarMotor();
-                break;
-            case 2:
-                veiculo.desligarMotor();
-                break;
-            case 3:
-                veiculo.setCombustivel(5.0);
-                break;
-            case 4:
-                veiculo.acelerar();
-                break;
-            case 5:
-                veiculo.frear();
-                break;
-            case 6:
-                veiculo.exibirInfo();
-                break;
-            default:
-                System.out.println("               Saindo...");
-                inicio = false;
+                case 1 -> veiculo.ligarMotor();
+                case 2 -> veiculo.desligarMotor();
+                case 3 -> veiculo.setCombustivel(abastecer);
+                case 4 -> veiculo.acelerar();
+                case 5 -> veiculo.frear();
+                case 6 -> veiculo.exibirInfo();
+                default -> {
+                    System.out.println("               Saindo...");
+                    inicio = false;
+                    }
             }
 
             System.out.println("------------------------------------------------------");

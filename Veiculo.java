@@ -48,8 +48,8 @@ public class Veiculo {
         return ano;
     }
 
-    public void setVelocidadeAtual(){
-
+    public void setVelocidadeAtual(double velocidadeAtual){
+        this.velocidadeAtual += velocidadeAtual;
     }
 
     public double getVelocidadeAtual(){
@@ -137,7 +137,7 @@ public class Veiculo {
                     this.combustivel = 0;
                 }
             } else {
-                System.out.println(" Veiculo está com o motor desligado");
+                System.out.println(" Veiculo está com o motor desligado!");
             }
         } else {
             System.out.println(" Veiculo está sem combustivel, não é possivel acelerar!");

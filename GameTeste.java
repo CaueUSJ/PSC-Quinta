@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Teste {
+public class GameTeste {
     public static void main(String[] args) {
         
         double abastecer = 5.0;
